@@ -1,18 +1,63 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
-
-
 # Your Project Title Here
+Throughout this project, the goal was to deploy using Azure ML a model ready to be consumed, as well as a pipeline. 
 
-*TODO:* Write an overview to your project.
+In order to achieve this, the following key steps have been performed:
+1. Train a model using AutoML
+2. Deploy the model, providing and endpoint, with its corresponding documentation and logs
+3. Consume endpoint to obtain the predicted result from the model
+4. Integrate the same process of the previous steps within a pipeline
 
 ## Architectural Diagram
 *TODO*: Provide an architectual diagram of the project and give an introduction of each step. An architectural diagram is an image that helps visualize the flow of operations from start to finish. In this case, it has to be related to the completed project, with its various stages that are critical to the overall flow. For example, one stage for managing models could be "using Automated ML to determine the best model". 
 
 ## Key Steps
-*TODO*: Write a short discription of the key steps. Remeber to include all the screenshots required to demonstrate key steps. 
+#### 1. Train a model using AutoML: ####
+First, dataset was registered for the training:
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/registered_dataset.png?raw=true)
+
+Once registered, and the training is finished, the best model obtained is:
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/best_model.png?raw=true)
+
+#### 2. Deploy the model, generate endpoint, logs, and documentation ####
+First, the model was deployed, generating the http endpoint, and Application Insights was enabled to 
+register the logs running the python script logs.py (modifying it accordingly beforehand):
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/deployment_with_application_insights.png?raw=true)
+
+Once deployed, I proceeded with the documentation of the endpoint using Swagger. 
+In order to achieve this, an http server has to be running to enable the swagger-ui to pull the proper 
+swagger.json file (our documentation file, previously downloaded from Azure).
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/swagger_http_request.png?raw=true)
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/swagger_http_methods.png?raw=true)
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/swagger_http_methods_2.png?raw=true)
+
+#### 3. Consume the model through the endpoint and benchmark the endpoint ####
+Once the endpoint of the model was up and running with the documentation required to call it, I used the endpoint.py script
+to obtain the predicted values of the classes of two new rows.
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/consumed_endpoint_model.png?raw=true)
+
+Benchmarking the endpoint:
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/benchmark_endpoint.png?raw=true)
+ 
+
+#### 4. Create and publish a pipeline ####
+In this step, the same process of training the model and exposing and endpoint for it was done using a pipeline.
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/pipeline_created.png?raw=true)
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/pipeline_endpoint.png?raw=true)
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/published_pipeline_overview.png?raw=true)
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/rundetails.png?raw=true)
+
+![alt text](https://github.com/ignacio-ibanez/Ml_azure_project2/blob/master/starter_files/screenshots/scheduled_run.png?raw=true)
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
