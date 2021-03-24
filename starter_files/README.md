@@ -61,3 +61,9 @@ In this step, the same process of training the model and exposing and endpoint f
 
 ## Screen Recording
 https://www.youtube.com/watch?v=wwQre35lPW0
+
+## Future improvements
+A possible improvement for the project could be to set a longer timeout value for the step of training
+the model with AutoML. This would give AutoML more time to find a better model, and achieve higher accuracy.
+Another improvement could be to add some feature to detect when new data has been added to the dataset, and rerun 
+automatically the pipeline so that the model uses as well the new data.
